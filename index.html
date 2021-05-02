@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Program-1</title>
+  <style type="text/css">
+    table,
+    td,
+    th {
+      border: 1px solid;
+      padding: 15px;
+      text-align: center;
+      background-color: #f5f7b2;
+      margin: auto;
+    }
+
+    input {
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript">
+    function calc(clicked_id) {
+      var v1 = parseFloat(document.getElementById("value1").value);
+      var v2 = parseFloat(document.getElementById("value2").value);
+      if (isNaN(v1) || isNaN(v2))
+        alert("Please enter a valid number");
+      else if (clicked_id == "Addition")
+        document.getElementById("answer").value = v1 + v2;
+      else if (clicked_id == "Substraction")
+        document.getElementById("answer").value = v1 - v2;
+      else if (clicked_id == "multiplication")
+        document.getElementById("answer").value = v1 * v2;
+      else if (clicked_id == "Division") {
+        if (v2 == 0) {
+          alert("Please Enter a Non Zero Denominator");
+          location.reload();
+        }
+        else
+        {
+          document.getElementById("answer").value = v1 / v2;
+      }
+      }
+    }
+
+    function cls() {
+      value1.value = "0";
+      value2.value = "0";
+      answer.value = "0";
+    }
+  </script>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th colspan="4"> SIMPLE CALCULATOR </th>
+    </tr>
+    <tr>
+      <td>Enter Operand-1</td>
+      <td> <input type="text" id="value1" value="0"></td>
+      <td>Enter Operand-2</td>
+      <td><input type="text" id="value2" value="0"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Addition" id="Addition" onclick="calc(this.id)"></td>
+      <td><input type="button" value="Substraction" id="Substraction" onclick="calc(this.id)"></td>
+      <td><input type="button" value="Multiplication" id="multiplication" onclick="calc(this.id)"></td>
+      <td colspan="5px"><input type="button" value="Division" id="Division" onclick="calc(this.id)"></td>
+    </tr>
+    <tr>
+      <td> Result: </td>
+      <td><input type="text" id="answer" value="" enable></td>
+      <td><input type="button" value="Clear All" id="cls" onclick="cls(this.id)"> </td>
+    </tr>
+  </table>
+</body>
+
+</html>
